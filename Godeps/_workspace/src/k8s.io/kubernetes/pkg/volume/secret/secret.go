@@ -56,7 +56,7 @@ func (plugin *secretPlugin) Name() string {
 }
 
 func (plugin *secretPlugin) CanSupport(spec *volume.Spec) bool {
-	return spec.Volume.Secret != nil
+        return spec.Volume != nil && spec.Volume.Secret != nil
 }
 
 func (plugin *secretPlugin) NewBuilder(spec *volume.Spec, pod *api.Pod, opts volume.VolumeOptions, mounter mount.Interface) (volume.Builder, error) {
